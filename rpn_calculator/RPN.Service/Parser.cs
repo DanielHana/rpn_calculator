@@ -39,7 +39,7 @@ namespace RPN.Service
             IsReadyForOperation = Characters.Intersect(ValidOperations).Any();
         }
 
-        public void CheckForInvalidUserInput()
+        private void CheckForInvalidUserInput()
         {
             // Order of input does not matter until there has been an operator
             if (IsReadyForOperation)
@@ -56,11 +56,11 @@ namespace RPN.Service
 
                 // If there is an operator and there is also a number afterward, user violated the notation >:O
                 if (indexOfFirstOperator > indexOfLastNumber)
-                    Errors.Add("Error: Invalid notation detected, resetting stack");
+                    Errors.Add("Error: Invalid notation detected");
 
                 // User inputted operator without any numbers
                 if (indexOfLastNumber == -1)
-                    Errors.Add("Error: Invalid notation detected, resetting stack");
+                    Errors.Add("Error: Operator inputted but no numbers detected");
 
                 if (Errors.Count > 0)
                     IsReadyForOperation = false;
