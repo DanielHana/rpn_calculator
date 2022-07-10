@@ -5,7 +5,7 @@ namespace RPN.Test
     public class ParserTests
     {
         [Test]
-        public void IsSingleNumber_InputIs2_ReturnTrue()
+        public void IsSingleInteger_InputIs2_ReturnTrue()
         {
             var parser = new Parser();
 
@@ -16,7 +16,7 @@ namespace RPN.Test
         }
 
         [Test]
-        public void IsDecimalNumber_InputIs3_ReturnTrue()
+        public void IsSingleDeciaml_InputIs3_ReturnTrue()
         {
             var parser = new Parser();
 
