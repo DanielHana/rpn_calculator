@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPN.Service
 {
-    public class Parser
+    public class Parser : IParser
     {
         private static readonly string[] ValidOperations = new string[] { "+", "-", "/", "*" };
         public Stack<string> Characters = new Stack<string>();
