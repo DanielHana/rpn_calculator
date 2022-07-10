@@ -32,12 +32,12 @@ You can also press F5 in Visual Studio, or select Start Debugging in the debug t
 
 ![image](https://user-images.githubusercontent.com/45577253/178158891-d92548a8-c592-4112-afad-a35291c5bb6c.png)
 
-Alternatively you can clone the .NET CLI and run the following in a terminal in the rpn_calculator solution folder:
+Alternatively you can yse the .NET CLI and run the following in a terminal in the rpn_calculator solution folder:
 
 `dotnet run --project RPN.CommandLine.UI`
 
 ![image](https://user-images.githubusercontent.com/45577253/178158916-98dabda3-6b0e-497a-aed6-708b4fa5effb.png)
 
-You can also run RPN.CommandLine.UI executable in the build folder located in the root directory of the repository
+You can also run the RPN.CommandLine.UI executable in the build folder located in the root directory of the repository
 
 **Note: .NET 6 is required to run the project.**
