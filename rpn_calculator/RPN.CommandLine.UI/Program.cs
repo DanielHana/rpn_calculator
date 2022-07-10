@@ -26,11 +26,12 @@ while (true)
     }
     else if(parser.Errors.Count > 0)
     {
+        Console.Clear();
         foreach (var error in parser.Errors)
         {
             Console.WriteLine(error);
         }
-        Console.WriteLine("Clearing stack, please try a different input");
+        Console.WriteLine("Caclulator cleared, please try a different input");
         parser.ResetParser();
     }
     else
