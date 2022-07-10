@@ -58,10 +58,6 @@ namespace RPN.Service
                 if (indexOfFirstOperator > indexOfLastNumber)
                     Errors.Add("Error: Invalid notation detected");
 
-                // User inputted operator without any numbers
-                if (indexOfLastNumber == -1)
-                    Errors.Add("Error: Operator inputted but no numbers detected");
-
                 if (Errors.Count > 0)
                     IsReadyForOperation = false;
             }
