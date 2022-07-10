@@ -18,7 +18,7 @@ This app currently supports the following operators:
 ## Design Choices
 This could have easily been written in a single file, but I decided to split it up into a project for parsing/evaluation and a project for the CLI UI, with the bulk of the work being handled by the service project it will be easier to connect different user interfaces. The service classes intentionally do not print anything to the console, instead I opted for them to return strings to be handled by the UI, making it easier to apply separate UI's and also helping decouple the project.
 
-I wrote this in C# running on .NET 6 due to my familiarity with the language, I was debating a SQL based implementation but I thought that might be a bit esoteric.
+I wrote this in C# running on .NET 6 due to my familiarity with the language, I was debating a SQL based implementation but I thought that might be a bit esoteric. My understanding of SQL is much better than my understanding of C#, but C# is a much better tool for this job.
 
 ## Room for improvement
 This implementation can handle some simpler edge cases but I'm sure there's more I'm missing, the unit tests also could be better. I feel like I could have done a better job decoupling my components as well, the parser feels like it's doing too much.
