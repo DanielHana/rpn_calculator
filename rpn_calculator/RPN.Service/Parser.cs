@@ -54,9 +54,23 @@ namespace RPN.Service
                 // Get the first operator inputted
                 var indexOfFirstOperator = Array.FindIndex(characterArray, character => ValidOperations.Contains(character));
 
+                // Get a count of all the numbers in the array
+                var numberCount = 
+                     characterArray.Where(character =>
+                     Double.TryParse(character, out double value)).Count();
+
+                // Get a count of all the operators
+                var operatorCount =
+                    characterArray.Where(character =>
+                    ValidOperations.Contains(character)).Count();
+
                 // If there is an operator and there is also a number afterward, user violated the notation >:O
                 if (indexOfFirstOperator > indexOfLastNumber)
                     Errors.Add("Error: Invalid notation detected");
+
+                // If there are too many operators add an error
+                if (operatorCount >= numberCount)
+                    Errors.Add("Error: Not enough numbers to perform an operation");
 
                 if (Errors.Count > 0)
                     IsReadyForOperation = false;
