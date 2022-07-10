@@ -5,6 +5,16 @@ In an RPN Calculator, rather than inputting 1 + 1, you would input 1 1 + to get 
 
 Multiple operands would just be concatenated at the end, for example 3 * (4 - 5) would be expressed in RPN as 3 4 5 * - 
 
+This app currently supports the following operators:
+
+\+ (addition)
+
+\- (subtraction)
+
+\* (multipication)
+
+\/ (division)
+
 ## Design Choices
 This could have easily been written in a single file, but I decided to split it up into a project for parsing/evaluation and a project for the CLI UI, the reason being if I ever decide to make a different UI I can easily just write one and then slap it onto my service project.
 
