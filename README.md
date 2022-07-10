@@ -18,7 +18,7 @@ This app currently supports the following operators:
 ## Design Choices
 This could have easily been written in a single file, but I decided to split it up into a project for parsing/evaluation and a project for the CLI UI, with the bulk of the work being handled by the service project it will be easier to connect different user interfaces. The service classes intentionally do not print anything to the console, instead I opted for them to return strings to be handled by the UI, making it easier to apply separate UI's and also helping decouple the project.
 
-I wrote this in C# running on .NET 6 due to my familiarity with the language, I was debating a SQL based implementation but I thought that might be a bit esoteric. My understanding of SQL is much better than my understanding of C#, but C# is a much better tool for this job.
+I wrote this in C# running on .NET 6 due to my familiarity with the language, I was debating a SQL based implementation but I thought that might be a bit esoteric. My understanding of SQL is better than my understanding of C#, but C# is a much better tool for this job.
 
 ## Room for improvement
 This implementation can handle some simpler edge cases but I'm sure there's more I'm missing, the unit tests also could be better. I feel like I could have done a better job decoupling my components as well, the parser feels like it's doing too much. Right now the parser is also sanitizing user input, if I had more time to work on this I'd probably create a separate class for sanitization.
@@ -38,6 +38,6 @@ Alternatively you can clone the .NET CLI and run the following in a terminal in 
 
 ![image](https://user-images.githubusercontent.com/45577253/178158916-98dabda3-6b0e-497a-aed6-708b4fa5effb.png)
 
-You can also run RPN.CommandLine.UI executable in the build folder located in the root directory
+You can also run RPN.CommandLine.UI executable in the build folder located in the root directory of the repository
 
 **Note: .NET 6 is required to run the project.**
