@@ -8,7 +8,7 @@ namespace RPN.Service
 {
     public class Parser : IParser
     {
-        private static readonly string[] ValidOperations = new string[] { "+", "-", "/", "*" };
+        
         public Stack<string> Characters = new Stack<string>();
         public bool IsReadyForOperation = false;
         public List<string> Errors = new List<string>();
@@ -31,12 +31,12 @@ namespace RPN.Service
         {
             // if the character can be converted to a double or is an operator, it is allowed
             return Double.TryParse(character, out double value)
-                   || ValidOperations.Contains(character);
+                   || Constants.ValidOperations.Contains(character);
         }
 
         public void CheckIsReadyForOperation()
         {
-            IsReadyForOperation = Characters.Intersect(ValidOperations).Any();
+            IsReadyForOperation = Characters.Intersect(Constants.ValidOperations).Any();
         }
 
         private void CheckForInvalidUserInput()
@@ -52,7 +52,7 @@ namespace RPN.Service
                      Double.TryParse(character, out double value)).FirstOrDefault());
 
                 // Get the first operator inputted
-                var indexOfFirstOperator = Array.FindIndex(characterArray, character => ValidOperations.Contains(character));
+                var indexOfFirstOperator = Array.FindIndex(characterArray, character => Constants.ValidOperations.Contains(character));
 
                 // Get a count of all the numbers in the array
                 var numberCount = 
@@ -62,7 +62,7 @@ namespace RPN.Service
                 // Get a count of all the operators
                 var operatorCount =
                     characterArray.Where(character =>
-                    ValidOperations.Contains(character)).Count();
+                    Constants.ValidOperations.Contains(character)).Count();
 
                 // If there is an operator and there is also a number afterward, user violated the notation >:O
                 if (indexOfFirstOperator > indexOfLastNumber)
@@ -71,7 +71,7 @@ namespace RPN.Service
                 // If there are too many operators add an error
                 if (operatorCount >= numberCount)
                     Errors.Add("Error: Not enough numbers to perform an operation");
-
+                
                 if (Errors.Count > 0)
                     IsReadyForOperation = false;
             }
