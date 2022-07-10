@@ -58,13 +58,13 @@ namespace RPN.Test
         }
 
         [Test]
-        public void DetectsNotEnoughOperans_ReturnsTrue()
+        public void DetectsNotEnoughOperands_ReturnsTrue()
         {
             var parser = new Parser();
 
             parser.Add("1 +");
 
-            Assert.True(parser.Errors.Count > 0, "Parser should detect basic if there are too many operands to perform an operation");
+            Assert.True(parser.Errors.Count > 0, "Parser should detect if it cannot perform an operation with the current amount of operands");
         }
     }
 }
