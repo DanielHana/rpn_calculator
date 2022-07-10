@@ -11,7 +11,6 @@ var exitOptions = new string[] { "q", "\\n", "", Environment.NewLine, "exit", "q
 var clearOptions = new string[] { "clear" };
 var listOptions = new string[] { "list", "ls" };
 
-Console.WriteLine("Please input an equation in Reverse Polish Notation");
 ListSupportedOperators(false);
 
 while (true)
