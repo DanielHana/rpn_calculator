@@ -38,4 +38,6 @@ Alternatively you can clone the .NET CLI and run the following in a terminal in 
 
 ![image](https://user-images.githubusercontent.com/45577253/178158916-98dabda3-6b0e-497a-aed6-708b4fa5effb.png)
 
+You can also run RPN.CommandLine.UI executable in the build folder located in the root directory
+
 **Note: .NET 6 is required to run the project.**
