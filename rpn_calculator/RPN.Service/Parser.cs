@@ -8,31 +8,70 @@ namespace RPN.Service
 {
     public class Parser
     {
-        public string[] ValidOperations = new string[] { "+", "-", "/", "*" };
-
+        private static readonly string[] ValidOperations = new string[] { "+", "-", "/", "*" };
         public Stack<string> Characters = new Stack<string>();
+        public bool IsReadyForOperation = false;
+        public List<string> Errors = new List<string>();
 
         public void Add(string itemsToAdd)
         {
             var itemList = itemsToAdd.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-            foreach(var item in itemList)
+            foreach (var item in itemList)
             {
-                if(IsValidInput(item))
+                if (IsAllowedCharacter(item))
                     Characters.Push(item);
             }
+
+            CheckIsReadyForOperation();
+            CheckForInvalidUserInput();
         }
 
-        private bool IsValidInput(string character)
+        private bool IsAllowedCharacter(string character)
         {
             // if the character can be converted to a double or is an operator, it is allowed
-            return Double.TryParse(character, out double value) 
+            return Double.TryParse(character, out double value)
                    || ValidOperations.Contains(character);
         }
 
-        public bool IsReadyForOperation()
+        public void CheckIsReadyForOperation()
         {
-            return Characters.Intersect(ValidOperations).Any();
+            IsReadyForOperation = Characters.Intersect(ValidOperations).Any();
+        }
+
+        public void CheckForInvalidUserInput()
+        {
+            // Order of input does not matter until there has been an operator
+            if (IsReadyForOperation)
+            {
+                var characterArray = Characters.ToArray();
+
+                // Get the last number inputted
+                var indexOfLastNumber = Array.IndexOf(characterArray,
+                     characterArray.Where(character =>
+                     Double.TryParse(character, out double value)).FirstOrDefault());
+
+                // Get the first operator inputted
+                var indexOfFirstOperator = Array.FindIndex(characterArray, character => ValidOperations.Contains(character));
+
+                // If there is an operator and there is also a number afterward, user violated the notation >:O
+                if (indexOfFirstOperator > indexOfLastNumber)
+                    Errors.Add("Error: Invalid notation detected, resetting stack");
+
+                // User inputted operator without any numbers
+                if (indexOfLastNumber == -1)
+                    Errors.Add("Error: Invalid notation detected, resetting stack");
+
+                if (Errors.Count > 0)
+                    IsReadyForOperation = false;
+            }
+        }
+
+        public void ResetParser()
+        {
+            Characters.Clear();
+            Errors.Clear();
+            IsReadyForOperation = false;
         }
     }
 }
