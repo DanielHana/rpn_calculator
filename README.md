@@ -21,7 +21,7 @@ This could have easily been written in a single file, but I decided to split it 
 I wrote this in C# running on .NET 6 due to my familiarity with the language, I was debating a SQL based implementation but I thought that might be a bit esoteric. My understanding of SQL is much better than my understanding of C#, but C# is a much better tool for this job.
 
 ## Room for improvement
-This implementation can handle some simpler edge cases but I'm sure there's more I'm missing, the unit tests also could be better. I feel like I could have done a better job decoupling my components as well, the parser feels like it's doing too much.
+This implementation can handle some simpler edge cases but I'm sure there's more I'm missing, the unit tests also could be better. I feel like I could have done a better job decoupling my components as well, the parser feels like it's doing too much. Right now the parser is also sanitizing user input, if I had more time to work on this I'd probably create a separate class for sanitization.
 
 ## Running the project
 To run in visual studio, clone the repo, set RPN.CommandLine.UI project as your startup project, and hit the run button 
