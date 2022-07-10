@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "RPN.CommandLine.UI/1.0.0": {
+        "dependencies": {
+          "RPN.Service": "1.0.0"
+        },
+        "runtime": {
+          "RPN.CommandLine.UI.dll": {}
+        }
+      },
+      "RPN.Service/1.0.0": {
+        "runtime": {
+          "RPN.Service.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RPN.CommandLine.UI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RPN.Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
