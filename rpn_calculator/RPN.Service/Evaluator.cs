@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace RPN.Service
 {
-    public class Evaluator
+    public class Evaluator : IEvaluator
     {
         public double Evaluate(Stack<string> container)
         {
             string topCharacter = container.Pop();
             double firstOperand, secondOperand;
-            
+
             // if topCharacter is not a number, use it as the operator
             if (!Double.TryParse(topCharacter, out firstOperand))
             {
